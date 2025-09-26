@@ -121,3 +121,26 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+# Ruta absoluta a la carpeta donde se encuentra este archivo
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Agrega aquí las rutas de tus archivos estáticos
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    # Otras rutas de archivos estáticos si las tienes
+]
+
+# URL base para acceder a los archivos estáticos
+STATIC_URL = "/static/"
+
+# Configuración de la base de datos
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+import os
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
+}
